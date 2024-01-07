@@ -2,6 +2,8 @@ AOH-layers/
 Species-richness/
 .tif
 .rds
+.mxd
+AOH/
 # History files
 .Rhistory
 .Rapp.history

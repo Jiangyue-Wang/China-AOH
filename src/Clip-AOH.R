@@ -76,3 +76,19 @@ for(i in 1: length(dir(mammal))){
   gc()
   print(i)
 }
+
+### save data tables----
+amphibian <- paste0("/home/jhanson/aoh-data/AMPHIBIANS/",dir("AOH-layers/Amphibians/"))
+reptile <- paste0("/home/jhanson/aoh-data/REPTILES/",dir("AOH-layers/Reptiles/"))
+bird <- paste0("/home/jhanson/frc-data/BOTW/",dir("AOH-layers/Birds/"))
+mammal <- paste0("/home/jhanson/aoh-data/MAMMALS_TERRESTRIAL_ONLY/", dir("AOH-layers/Mammals/"))
+
+amphi <- amphi %>% filter(path %in% amphibian) %>% st_drop_geometry()
+reptl <- reptl %>% filter(path %in% reptile)%>% st_drop_geometry()
+br <- br %>% filter(path %in% bird)%>% st_drop_geometry()
+mamal <- mamal %>% filter(path %in% mammal)%>% st_drop_geometry()
+
+write.csv(amphi, "data-tables/Amphibians.csv", row.names =F )
+write.csv(reptl, "data-tables/Reptiles.csv", row.names =F )
+write.csv(br, "data-tables/Birds.csv", row.names =F )
+write.csv(mamal, "data-tables/Mammals.csv", row.names =F )
